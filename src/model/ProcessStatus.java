@@ -1,14 +1,9 @@
-package com.globaldocs.model;
+package model;
 
-/**
- * Enum representing the outcome of a document processing attempt.
- * Used in ProcessingResult and BatchReport to indicate per-document status.
- */
 public enum ProcessStatus {
 
-    SUCCESS("Processed successfully"),
-    FAILED("Processing failed"),
-    SKIPPED("Skipped — validation not passed");
+    SUCCESS("Processed successfully"), FAILED("Processing failed"), SKIPPED(
+            "Skipped — validation not passed");
 
     private final String description;
 

@@ -1,18 +1,12 @@
-package com.globaldocs.model;
+package model;
 
 /**
- * Enum representing all supported file formats for document uploads.
- * Factories use this to validate format compatibility per country and document type.
+ * Enum representing all supported file formats for document uploads. Factories use this to validate
+ * format compatibility per country and document type.
  */
 public enum FileFormat {
 
-    PDF(".pdf"),
-    DOC(".doc"),
-    DOCX(".docx"),
-    MD(".md"),
-    CSV(".csv"),
-    TXT(".txt"),
-    XLSX(".xlsx");
+    PDF(".pdf"), DOC(".doc"), DOCX(".docx"), MD(".md"), CSV(".csv"), TXT(".txt"), XLSX(".xlsx");
 
     private final String extension;
 
@@ -25,8 +19,8 @@ public enum FileFormat {
     }
 
     /**
-     * Resolves a FileFormat from a filename or extension string.
-     * Example: "invoice.pdf" or ".pdf" → FileFormat.PDF
+     * Resolves a FileFormat from a filename or extension string. Example: "invoice.pdf" or ".pdf" →
+     * FileFormat.PDF
      *
      * @param filename the filename or extension to resolve
      * @return the matching FileFormat

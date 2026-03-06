@@ -1,31 +1,23 @@
-package com.globaldocs.factory;
+package factory;
 
-import com.globaldocs.model.CountryCode;
 import java.util.Map;
+import model.CountryCode;
 
 /**
  * Registry that maps CountryCode to its corresponding DocumentProcessorFactory.
  *
- * Clients use this to get the right factory without knowing concrete class names.
- * This is the standard way to bridge the Factory Method pattern with runtime selection.
+ * Clients use this to get the right factory without knowing concrete class names. This is the
+ * standard way to bridge the Factory Method pattern with runtime selection.
  *
- * Usage:
- *   DocumentProcessorFactory factory = FactoryRegistry.getFactory(CountryCode.CO);
- *   DocumentProcessor processor = factory.getProcessor(DocumentType.ELECTRONIC_INVOICE, FileFormat.PDF, "invoice.pdf");
+ * Usage: DocumentProcessorFactory factory = FactoryRegistry.getFactory(CountryCode.CO);
+ * DocumentProcessor processor = factory.getProcessor(DocumentType.ELECTRONIC_INVOICE,
+ * FileFormat.PDF, "invoice.pdf");
  */
 public class FactoryRegistry {
 
     private static final Map<CountryCode, DocumentProcessorFactory> REGISTRY =
-        Map.of(
-            CountryCode.CO,
-            new ColombiaFactory(),
-            CountryCode.MX,
-            new MexicoFactory(),
-            CountryCode.AR,
-            new ArgentinaFactory(),
-            CountryCode.CL,
-            new ChileFactory()
-        );
+            Map.of(CountryCode.CO, new ColombiaFactory(), CountryCode.MX, new MexicoFactory(),
+                    CountryCode.AR, new ArgentinaFactory(), CountryCode.CL, new ChileFactory());
 
     private FactoryRegistry() {
         // Utility class — no instantiation
@@ -41,9 +33,7 @@ public class FactoryRegistry {
     public static DocumentProcessorFactory getFactory(CountryCode country) {
         DocumentProcessorFactory factory = REGISTRY.get(country);
         if (factory == null) {
-            throw new IllegalArgumentException(
-                "No factory registered for country: " + country
-            );
+            throw new IllegalArgumentException("No factory registered for country: " + country);
         }
         return factory;
     }
