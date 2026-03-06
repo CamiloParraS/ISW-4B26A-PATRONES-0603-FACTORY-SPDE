@@ -2,10 +2,7 @@ package model;
 
 public enum CountryCode {
 
-    CO("Colombia"),
-    MX("Mexico"),
-    AR("Argentina"),
-    CL("Chile");
+    CO("Colombia"), MX("Mexico"), AR("Argentina"), CL("Chile"), JP("Japan");
 
     private final String fullName;
 
