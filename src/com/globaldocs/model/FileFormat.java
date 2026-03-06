@@ -1,5 +1,9 @@
-package model;
+package com.globaldocs.model;
 
+/**
+ * Enum representing all supported file formats for document uploads.
+ * Factories use this to validate format compatibility per country and document type.
+ */
 public enum FileFormat {
 
     PDF(".pdf"),
@@ -20,6 +24,14 @@ public enum FileFormat {
         return extension;
     }
 
+    /**
+     * Resolves a FileFormat from a filename or extension string.
+     * Example: "invoice.pdf" or ".pdf" → FileFormat.PDF
+     *
+     * @param filename the filename or extension to resolve
+     * @return the matching FileFormat
+     * @throws IllegalArgumentException if no match is found
+     */
     public static FileFormat fromFilename(String filename) {
         if (filename == null || filename.isBlank()) {
             throw new IllegalArgumentException("Filename cannot be null or blank.");

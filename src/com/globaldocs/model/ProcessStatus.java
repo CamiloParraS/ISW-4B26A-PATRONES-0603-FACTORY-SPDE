@@ -1,5 +1,9 @@
-package model;
+package com.globaldocs.model;
 
+/**
+ * Enum representing the outcome of a document processing attempt.
+ * Used in ProcessingResult and BatchReport to indicate per-document status.
+ */
 public enum ProcessStatus {
 
     SUCCESS("Processed successfully"),

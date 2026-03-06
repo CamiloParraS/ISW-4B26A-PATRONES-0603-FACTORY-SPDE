@@ -1,5 +1,9 @@
-package model;
+package com.globaldocs.model;
 
+/**
+ * Enum representing the four supported countries in the GlobalDocs system.
+ * Each country code maps to a concrete DocumentProcessorFactory.
+ */
 public enum CountryCode {
 
     CO("Colombia"),

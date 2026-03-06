@@ -1,9 +1,13 @@
-package model;
+package com.globaldocs.model;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
+/**
+ * Immutable result object returned by every DocumentProcessor.process() call.
+ * Carries all metadata about the processing outcome for display and reporting.
+ */
 public class ProcessingResult {
 
     private final String        documentId;
@@ -29,6 +33,8 @@ public class ProcessingResult {
         this.fileSizeBytes = builder.fileSizeBytes;
     }
 
+    // ── Getters ──────────────────────────────────────────────
+
     public String        getDocumentId()    { return documentId; }
     public String        getDocumentName()  { return documentName; }
     public CountryCode   getCountry()       { return country; }
@@ -43,9 +49,13 @@ public class ProcessingResult {
         return status == ProcessStatus.SUCCESS;
     }
 
+    /**
+     * Returns a formatted summary of this result for UI display.
+     */
     public String toDisplayString() {
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         return String.format(
+            "┌─ Processing Result ────────────────────────────┐%n" +
             "  ID       : %s%n" +
             "  Document : %s%n" +
             "  Country  : %s%n" +
@@ -55,6 +65,7 @@ public class ProcessingResult {
             "  Message  : %s%n" +
             "  Size     : %d bytes%n" +
             "  Time     : %s%n" +
+            "└────────────────────────────────────────────────┘",
             documentId,
             documentName,
             country.name(),
@@ -66,6 +77,8 @@ public class ProcessingResult {
             processedAt.format(fmt)
         );
     }
+
+    // ── Builder ──────────────────────────────────────────────
 
     public static class Builder {
 

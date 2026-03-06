@@ -1,5 +1,9 @@
-package model;
+package com.globaldocs.model;
 
+/**
+ * Enum representing all supported document types in the GlobalDocs system.
+ * Each type maps to a concrete DocumentProcessor created by the Factory Method.
+ */
 public enum DocumentType {
 
     ELECTRONIC_INVOICE("Electronic Invoice"),

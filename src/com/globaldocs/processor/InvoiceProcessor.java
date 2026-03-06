@@ -1,10 +1,16 @@
-package processor;
+package com.globaldocs.processor;
 
-import model.*;
+import com.globaldocs.model.*;
 
 import java.io.File;
 import java.util.List;
 
+/**
+ * Concrete Product — processes Electronic Invoice documents.
+ * Business logic will be implemented in Phase 3.
+ *
+ * Instantiated by each country factory via the Factory Method.
+ */
 public class InvoiceProcessor implements DocumentProcessor {
 
     private final CountryCode   country;
@@ -17,6 +23,7 @@ public class InvoiceProcessor implements DocumentProcessor {
 
     @Override
     public ProcessingResult process(File file) {
+        // TODO (Phase 3): Implement invoice processing logic
         throw new UnsupportedOperationException("InvoiceProcessor.process() not yet implemented — Phase 3");
     }
 
